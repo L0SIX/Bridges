@@ -1,0 +1,10 @@
+local player = game.Players.LocalPlayer
+
+-- Function to reset the player
+local function resetPlayer()
+  player.Character:MoveTo(player.SpawnLocation)
+end
+
+-- Wait for 15 seconds then call the resetPlayer function
+wait(15)
+resetPlayer()
