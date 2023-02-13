@@ -1,0 +1,5 @@
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://12481433258"
+sound.Volume = 1
+sound.Parent = game.Workspace
+sound:Play()
