@@ -1,0 +1,9 @@
+local Players = game:GetService("Players")
+
+local function onPlayerAdded(player)
+  local playerGui = player:WaitForChild("PlayerGui")
+  local backpack = playerGui:WaitForChild("Backpack")
+  backpack.Parent = playerGui
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
