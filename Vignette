@@ -1,0 +1,22 @@
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.CoreGui
+
+local Fignette = Instance.new("ImageLabel")
+Fignette.Parent = ScreenGui
+Fignette.BackgroundTransparency = 1
+Fignette.Image = "rbxassetid://597150991" -- a black image
+Fignette.Size = UDim2.new(1, 0, 1, 0)
+Fignette.AnchorPoint = Vector2.new(0.5, 0.5)
+Fignette.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+local Blur = Instance.new("BlurEffect")
+Blur.Parent = ScreenGui
+Blur.Size = 100
+
+local TweenService = game:GetService("TweenService")
+
+local FignetteTween = TweenService:Create(Fignette, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { BackgroundTransparency = 0.7 })
+local BlurTween = TweenService:Create(Blur, TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = 20 })
+
+FignetteTween:Play()
+BlurTween:Play()
