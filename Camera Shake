@@ -1,0 +1,28 @@
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local camera = workspace.CurrentCamera
+
+local startTime = tick()
+local duration = 15
+local amplitude = 0.05
+local frequency = 0.1
+
+UserInputService.InputBegan:Connect(function(inputObject)
+	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
+		startTime = tick()
+	end
+end)
+
+while true do
+	local elapsedTime = tick() - startTime
+	if elapsedTime <= duration then
+		local shake = amplitude * (1 - elapsedTime / duration)
+		local angle = elapsedTime * frequency
+		camera.CFrame = CFrame.new(camera.CFrame.p) * CFrame.fromEulerAnglesXYZ(math.sin(angle) * shake, math.cos(angle) * shake, 0)
+	else
+		camera.CFrame = CFrame.new(camera.CFrame.p)
+	end
+	wait(0.01)
+end
