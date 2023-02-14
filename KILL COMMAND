@@ -1,0 +1,11 @@
+wait(15) -- wait for 15 seconds
+
+local player = game.Players.LocalPlayer -- get the local player
+local character = player.Character or player.CharacterAdded:Wait() -- get the player's character
+
+character:TakeDamage(100) -- damage the player by 100 health
+
+local audio = Instance.new("Sound") -- create a new Sound instance
+audio.SoundId = "rbxassetid://1" -- set the audio ID to 1
+audio.Parent = character.Head -- attach the audio to the player's head
+audio:Play() -- play the audio
