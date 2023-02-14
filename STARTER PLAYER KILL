@@ -1,0 +1,6 @@
+local player = game.Players.LocalPlayer
+local character = player.Character
+
+wait(15)
+
+character.Humanoid.Health = 0
